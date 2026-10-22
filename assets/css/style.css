@@ -1,0 +1,51 @@
+/* ArchMAJE static rebuild — colours/fonts per _source/style-notes.md */
+@font-face{font-family:"Spectral SC";font-weight:400;font-display:swap;src:url(../images/spectralsc-ktkpalcrzonmaltgypmrfswl42e.woff2) format("woff2")}
+@font-face{font-family:"Spectral SC";font-weight:700;font-display:swap;src:url(../images/spectralsc-ktk0alcrzonmaltgypmrfs0exntqn4y.woff2) format("woff2")}
+@font-face{font-family:"Roboto";font-weight:400;font-display:swap;src:url(../images/roboto-kfo7cnqeu92fr1me7ksn66agldtyluama3yuba.woff2) format("woff2")}
+@font-face{font-family:"Roboto";font-style:italic;font-display:swap;src:url(../images/roboto-kfo5cnqeu92fr1mu53zec9_vu3r1gihoszmkbnka.woff2) format("woff2")}
+@font-face{font-family:"Roboto Slab";font-display:swap;src:url(../images/robotoslab-bngmuxzytxpivibgjjsb6ufn5qu.woff2) format("woff2")}
+@font-face{font-family:"Rock Salt";font-display:swap;src:url(../images/rocksalt-mwq0bhv11fwd6qsavozrt0m6.woff2) format("woff2")}
+@font-face{font-family:"Tenali Ramakrishna";font-display:swap;src:url(../images/tenaliramakrishna-raxghj6yt9gan3llks0bzvmo8jmwn1-ml5_r.woff2) format("woff2")}
+:root{--bg:#000;--panel:#2a0a0a;--deep:#4f0000;--wine:#5f0707;--red:#790404;--accent:#c72c00;--hot:#fa3700;--text:#eee;--muted:#999}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg) linear-gradient(180deg,var(--panel),#000 40%);color:var(--text);font:16px/1.6 "Roboto",-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+a{color:var(--accent)}a:hover,a:focus{color:var(--hot)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;color:#000;padding:.5rem;z-index:10}
+.site-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.8rem 1.5rem;background:var(--wine);border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:5}
+.brand{font-family:"Spectral SC",serif;font-weight:700;font-size:1.6rem;color:#fff;text-decoration:none;letter-spacing:.05em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem}
+nav a{font-family:"Spectral SC",serif;color:#fff;text-decoration:none;letter-spacing:.08em}
+nav a[aria-current],nav a:hover{color:var(--hot)}
+.nav-toggle,.nav-burger{display:none}
+main{max-width:1200px;margin:0 auto;padding:2rem 1rem 3rem;text-align:center}
+h1,h2,h3{font-family:"Spectral SC",serif;font-weight:400;color:#fff;letter-spacing:.06em;margin:2.5rem 0 1rem}
+h1{font-size:clamp(2rem,6vw,3.5rem);color:var(--accent)}
+h2{font-size:clamp(1.5rem,4vw,2.4rem)}
+.hero-title{font-size:clamp(2.5rem,10vw,5.5rem);font-weight:700;margin-top:.5rem;text-shadow:0 0 18px var(--red)}
+.home h2:not(.cta){font-family:"Tenali Ramakrishna","Roboto",sans-serif;font-size:1.6rem;color:#ddd}
+.cta a{display:inline-block;padding:.3rem 1.4rem;border:2px solid var(--accent);color:#fff;text-decoration:none;background:var(--deep);transition:background .2s}
+.cta a:hover{background:var(--accent);color:#fff}
+.text{font-family:"Roboto Slab",serif;margin:.4rem 0}
+figure{margin:0}
+.single img{max-width:min(100%,900px);height:auto;border:1px solid var(--wine)}
+.home .single:first-child img{max-width:280px;border:0}
+.gallery{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,32%);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.5rem 0 1rem;scrollbar-color:var(--accent) var(--panel)}
+.gallery figure{scroll-snap-align:start}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid var(--wine)}
+.social{list-style:none;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+.social a{font-family:"Spectral SC",serif}
+.video{position:relative;max-width:900px;margin:1rem auto;aspect-ratio:16/9}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.site-footer{background:var(--wine);text-align:center;padding:1rem;font-size:.9rem;color:#ddd}
+.site-footer p{margin:.2rem}.site-footer a{color:#fff}
+.notfound h1{font-size:6rem}
+@media (max-width:700px){
+ .nav-burger{display:block;width:32px;height:24px;cursor:pointer;position:relative}
+ .nav-burger span,.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:100%;height:3px;background:#fff}
+ .nav-burger span{top:10px}.nav-burger span::before{top:-9px}.nav-burger span::after{top:9px}
+ nav{flex-basis:100%;display:none}
+ .nav-toggle:checked~nav{display:block}
+ nav ul{flex-direction:column;gap:.6rem;padding:.8rem 0}
+ .gallery{grid-auto-columns:80%}
+}
