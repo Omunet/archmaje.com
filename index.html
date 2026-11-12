@@ -1,30 +1,131 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ArchMAJE</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAJE — ArchMAJE · DJ</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="site.css">
+<style>
+:root{--w:1120px}
+.col{max-width:calc(var(--w) + 64px);margin:0 auto;padding:0 32px}
+.hero{text-align:center;padding:40px 0 80px}
+.hero img{width:min(560px,82vw);margin:0 auto}
+.hero .btns{margin-top:34px}
+#dj{padding:110px 0 0}
+.intro{max-width:720px;margin:0 auto 56px;text-align:center}
+.intro .genres{font-size:.85rem;letter-spacing:.06em;line-height:1.9;margin:0}
+.intro .genres::before,.intro .genres::after{content:"";display:inline-block;width:28px;height:1px;background:currentColor;vertical-align:middle;margin:0 14px;opacity:.5}
+.intro .txt{font-size:1.15rem;line-height:1.7;margin:0}
+.djphoto img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 40%}
+.band{background:#000;color:#fff;padding:72px 32px}
+.band .exp{max-width:680px;margin:0 auto}
+.band .exp p{font-size:1.08rem;line-height:1.8;margin:0 0 24px}
+.band .exp p:last-child{margin:0}
+.links3{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #000}
+.links3>div{padding:30px 20px;text-align:center}
+.links3>div+div{border-left:1px solid #000}
+.links3 b{display:block;font-family:var(--fc);font-weight:400;font-size:1.6rem;margin:8px 0}
+#dates{padding:90px 0 0}
+.datesbox{background:#000;color:#fff;padding:80px 32px;text-align:center}
+.datesbox h2{margin-bottom:18px}
+.date{max-width:620px;margin:0 auto;border:1px solid #444;padding:42px 24px}
+.date p{font-family:var(--fc);font-size:2rem;margin:10px 0}
+#disciplines{padding:110px 0 120px}
+.disc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #000;border-bottom:1px solid #000}
+.disc a{display:block;text-decoration:none;padding:30px 22px 36px;text-align:center}
+.disc a+a{border-left:1px solid #000}
+.disc img{width:100%;aspect-ratio:3/4;object-fit:cover;margin-bottom:22px}
+.disc h3{font-family:var(--fc);font-weight:400;font-size:1.4rem;line-height:1.05;margin:8px 0 0}
+footer{border-top:1px solid #000}
+@media (max-width:860px){
+ .col{padding:0 18px}
+ #dj{padding:72px 0 0}
+ .intro .genres::before,.intro .genres::after{display:none}
+ .djphoto img{aspect-ratio:4/5}
+ .band{padding:48px 22px}
+ .links3{grid-template-columns:1fr}.links3>div+div{border-left:0;border-top:1px solid #000}
+ #dates{padding:64px 0 0}.datesbox{padding:56px 18px}
+ .date{padding:30px 16px}
+ .date p{font-size:1.45rem}
+ #disciplines{padding:72px 0 80px}
+ .disc{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .disc a:nth-child(3){border-left:0}
+ .disc a:nth-child(n+3){border-top:1px solid #000}
+ .disc a{padding:20px 12px 26px}.disc h3{font-size:1.1rem}
+}
+.v{font-weight:500;letter-spacing:.01em}
+.sigil{width:120px;height:24px;display:block;margin:0 auto;stroke:currentColor;stroke-width:1;fill:none}.sigil .f{fill:currentColor;stroke:none}
+.links3{border-top:1px solid #000}
+.tc{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.tcp img{width:100%;height:100%;min-height:100%;object-fit:cover;object-position:50% 30%}
+.tct{border-left:1px solid #000;margin-left:48px;padding:8px 0 40px 48px;display:flex;flex-direction:column;justify-content:center}
+.tct .k{opacity:.55;display:block;margin-bottom:14px}
+.tct h3{font-family:var(--fd);letter-spacing:.03em;font-weight:500;font-size:2.8rem;line-height:1;margin:0 0 26px}
+.tct p{font-size:1.02rem;line-height:1.8;margin:0 0 20px}
+.tct p:last-child{margin:0}
+.links3{margin-top:56px}
+@media (max-width:860px){.tc{grid-template-columns:1fr}.tcp img{aspect-ratio:4/5;height:auto}
+.tct{border-left:0;border-top:1px solid #000;margin:32px 0 0;padding:32px 0 0}.tct h3{font-size:2.2rem}.links3{margin-top:44px}}
+</style>
 </head>
 <body>
-<a class="skip" href="#content">Skip to Main Content</a>
-<header class="site-header">
-<a class="brand" href="./">ArchMAJE</a>
-<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
-<label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span></label>
-<nav aria-label="Menu"><ul><li><a href="./" aria-current="page">HOME</a></li><li><a href="art-creation/">ART CREATION</a></li><li><a href="mua/">PHOTOGRAPHY</a></li><li><a href="mailto:info@archmaje.com">CONTACT</a></li></ul></nav>
-</header>
-<main id="content">
-<section class="home"><figure class="single"><img src="assets/images/8394db61-a7ef-4215-b631-058a5fbed1c7-oo5mi8hr358d0qcso5snpd5cxstphpexwwzhya0uw4.png" alt="" loading="lazy"></figure>
-<h1 class="hero-title">ARCHMAJE</h1><ul class="social"><li><a href="https://www.instagram.com/archmaje/" rel="noopener">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCsJwmpYkMfs2pWtPYfimrqA?view_as=subscriber" rel="noopener">YouTube</a></li><li><a href="https://soundcloud.com/maud-espinasse" rel="noopener">SoundCloud</a></li><li><a href="https://www.facebook.com/archmaje/photos/pcb.328023718786089/328023658786095/" rel="noopener">Facebook</a></li></ul>
-<h2 class="cta"><a href="art-creation/">ART</a></h2>
-<figure class="single"><img src="assets/images/minewat.jpg" alt="" loading="lazy"></figure>
-<h2>To see more of my art work, go check my Instagram or click on ART</h2>
-<h2 class="cta"><a href="mua/">MAKEUP</a></h2>
-<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/CavnPWTKlqY" title="YouTube video" allowfullscreen loading="lazy"></iframe></div>
-<figure class="single"><img src="assets/images/DSC2129.jpg" alt="" loading="lazy"></figure>
-<h2>To see more makeup, go check my Youtube channel, Instagram or click on MAKEUP</h2></section>
-</main>
-<footer class="site-footer"><p>&copy; 2026 ArchMAJE</p><p><a href="mailto:info@archmaje.com">info@archmaje.com</a></p></footer>
-</body>
-</html>
+<div class="dark" style="position:relative">
+ <div class="top">
+  <a class="mono home" href="./">ArchMAJE</a>
+  <nav class="mono"><a href="#dj">DJ</a><a href="#dates">Dates</a><a href="art/">Art</a><a href="makeup/">Makeup</a><a href="about/">About</a><a href="press-kit/">Press kit</a></nav>
+  <span class="lang mono"><a class="on" href="#">EN</a> · <a href="#">FR</a> · <a href="#">ES</a></span>
+ </div>
+ <div class="hero">
+  <img src="assets/logo-cats-mark.jpg" alt="MAJE logo: hooded black cat at the decks">
+  <div class="btns"><a class="btn fill mono" href="https://soundcloud.com/maud-espinasse">Listen to mixes</a><a class="btn mono" href="mailto:info@archmaje.com">Booking</a></div>
+ </div>
+</div>
+
+<section id="dj" class="light"><div class="col">
+ <h2>MAJE on the decks</h2>
+ <div class="intro">
+  <p class="genres mono" style="text-transform:none">From Bass music roots to Progressive Psytrance and Hard Techno</p>
+ </div>
+ <div class="tc">
+  <div class="tcp"><img src="assets/dj-photo-clean.jpg" alt="MAJE at the decks"></div>
+  <div class="tct">
+   <h3>Experience</h3>
+   <p>MAJE is a versatile DJ rooted in Barcelona's underground electronic scene. She has played major club stages such as <span class="v">Automata at Garage</span> (now <span class="v">Detroit Club</span>), sharing the line-up with <span class="v">Technimatic</span> and <span class="v">Etherwood</span>, as well as <span class="v">Impérial</span> and <span class="v">Club Sauvage</span>, where her sets blend techno and progressive psytrance.</p>
+   <p>She is also a regular at the city's bass-music bars, including <span class="v">Unplug</span>, <span class="v">Absenta de Raval</span>, <span class="v">Supermercat</span> with the DnB crews <span class="v">Dropezone</span>, <span class="v">Drum and Babes</span> and <span class="v">The Protocol</span>. Plus the <span class="v">Bar Recreo</span> with <span class="v">ANK Records</span>.</p>
+   <p>Her sound leans towards heavy bass music, but she reads every room, moving easily into techno, house, electro or world music to fit the night.</p>
+  </div>
+ </div>
+ <div class="links3">
+  <div><span class="mono" style="opacity:.6">Mixes</span><b>SoundCloud</b><a href="https://soundcloud.com/maud-espinasse">Listen →</a></div>
+  <div><span class="mono" style="opacity:.6">Booking</span><b>Contact</b><a href="mailto:info@archmaje.com">info@archmaje.com</a></div>
+  <div><span class="mono" style="opacity:.6">Videos</span><b>YouTube</b><a href="https://www.youtube.com/@archmaje">@archmaje →</a></div>
+ </div>
+</div></section>
+
+<section id="dates" class="light"><div class="col">
+ <div class="datesbox">
+  <h2>Upcoming dates</h2>
+  <div class="rule"></div>
+  <div class="date"><span class="mono" style="opacity:.6">— — / — — / — — — —</span><p>Coming soon</p><span class="ph">Upcoming dates will be announced here.</span></div>
+ </div>
+</div></section>
+
+<section id="disciplines" class="light"><div class="col">
+ <h2>What I also do</h2>
+ <div class="rule"></div>
+ <div class="disc">
+  <a href="art/"><img src="assets/site/me/SPIRAL.jpg" alt="Art"><span class="mono">I</span><h3>Art</h3></a>
+  <a href="makeup/#artistic"><img src="assets/site/me/JONSQUELETTE.jpg" alt="Artistic makeup"><span class="mono">II</span><h3>Artistic makeup</h3></a>
+  <a href="makeup/#photoshoot"><img src="assets/site/me/Victoria2Final.jpg" alt="Professional makeup"><span class="mono">III</span><h3>Professional makeup</h3></a>
+  <a href="makeup/#photography"><img src="assets/site/me/DSC9454CROP.jpg" alt="Photographer"><span class="mono">IV</span><h3>Photographer</h3></a>
+ </div>
+</div></section>
+
+<footer class="light">
+ <img class="catmini" src="assets/logo-cat-only.jpg" alt="">
+ <p style="font-family:var(--fd);letter-spacing:.03em;font-weight:500;font-size:2.4rem;margin:0">ArchMAJE</p>
+ <p><a href="mailto:info@archmaje.com">info@archmaje.com</a></p>
+ <div class="soc mono"><a href="https://www.instagram.com/archmaje/">Instagram</a><a href="https://soundcloud.com/maud-espinasse">SoundCloud</a><a href="https://www.youtube.com/@archmaje">YouTube</a><a href="https://archmaje.com/redfine/">Redfine</a></div>
+ <p class="mono" style="opacity:.5">© 2026 ArchMAJE</p>
+</footer>
+</body></html>
