@@ -1,0 +1,16 @@
+@font-face{font-family:"Cinzel";src:url("assets/fonts/alt/cinzel/Cinzel%5Bwght%5D.ttf") format("truetype");font-weight:400 900;font-display:swap}
+:root{--fd:"Cinzel",serif;--fc:"Cinzel",serif}
+@font-face{font-family:"Inter";src:url(assets/fonts/Inter.ttf) format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono.ttf) format("truetype");font-display:swap}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Inter",system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.mono{font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem}
+.serif{font-family:var(--fc);font-weight:400}
+.bw{filter:grayscale(1) contrast(1.1);transition:filter .4s}
+.bw:hover{filter:grayscale(0)}
+.lang a{text-decoration:none;opacity:.45}.lang a.on{opacity:1}
+.ph{opacity:.55;font-style:italic}
+.icon{width:18px;height:18px;fill:currentColor;vertical-align:-3px}
