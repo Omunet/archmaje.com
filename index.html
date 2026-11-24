@@ -33,12 +33,15 @@
 #dates{padding:90px 0 0}
 .datesbox{background:#000;color:#fff;padding:80px 32px;text-align:center}
 .datesbox h2{margin-bottom:18px}
-.dates{list-style:none;max-width:620px;margin:0 auto;padding:0;display:flex;flex-direction:column;gap:16px}
-.dates li{border:1px solid #444;padding:42px 24px}
+.dates{list-style:none;max-width:880px;margin:0 auto;padding:0;display:flex;flex-direction:column;gap:16px}
+.dates li{border:1px solid #444;padding:28px;display:grid;grid-template-columns:minmax(150px,230px) minmax(0,1fr);gap:22px 32px;align-items:center}
+.dates .flyer{display:block;text-decoration:none;line-height:0}
+.dates .flyer img{width:100%;height:auto;display:block}
+.dates .flyer:hover img{opacity:.85}
 .dates time{display:block;opacity:.6}
 .dates p{font-family:var(--fc);font-size:2rem;line-height:1.2;margin:10px 0;text-wrap:balance}
 .dates .where{display:block}
-.dates a{display:inline-block;margin-top:16px}
+.dates .info a{display:inline-block;margin-top:16px}
 #disciplines{padding:110px 0 120px}
 .disc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #000;border-bottom:1px solid #000}
 .disc a{display:block;text-decoration:none;padding:30px 22px 36px;text-align:center}
@@ -54,7 +57,8 @@ footer{border-top:1px solid #000}
  .band{padding:48px 22px}
  .links3{grid-template-columns:1fr}.links3>div+div{border-left:0;border-top:1px solid #000}
  #dates{padding:64px 0 0}.datesbox{padding:56px 18px}
- .dates li{padding:30px 16px}
+ .dates li{grid-template-columns:1fr;padding:24px 16px;gap:18px}
+ .dates .flyer{max-width:280px;margin:0 auto}
  .dates p{font-size:1.45rem}
  #disciplines{padding:72px 0 80px}
  .disc{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -100,7 +104,7 @@ footer{border-top:1px solid #000}
   <div class="tct">
    <h3>Experience</h3>
    <p>MAJE is a versatile DJ rooted in Barcelona's underground electronic scene. She has played major club stages such as <span class="v">Automata at Garage</span> (now <span class="v">Detroit Club</span>), sharing the line-up with <span class="v">Technimatic</span> and <span class="v">Etherwood</span>, and <span class="v">9D9</span> alongside <span class="v">Skrimor</span>, as well as <span class="v">Impérial</span> and <span class="v">Club Sauvage</span>, where her sets blend techno and progressive psytrance.</p>
-   <p>She is also a regular at the city's bass-music bars, including <span class="v">Unplug</span>, <span class="v">Absenta de Raval</span>, <span class="v">Supermercat</span> with the DnB crews <span class="v">Dropezone</span>, <span class="v">Drum and Babes</span>, <span class="v">The Protocol</span> and <span class="v">True Colors</span>. Plus the <span class="v">Bar Recreo</span> with <span class="v">ANK Records</span>.</p>
+   <p>She is also a regular at the city's bass-music bars, including <span class="v">Unplug</span>, <span class="v">Absenta de Raval</span>, <span class="v">Supermercat</span> with the DnB crews <span class="v">Dropezone</span>, <span class="v">Drum and Babes</span>, <span class="v">The Protocol</span> and <span class="v">True Color</span>. Plus the <span class="v">Bar Recreo</span> with <span class="v">ANK Records</span>.</p>
    <p>Her sound leans towards heavy bass music, but she reads every room, moving easily into techno, house, electro or world music to fit the night.</p>
   </div>
  </div>
@@ -118,16 +122,23 @@ footer{border-top:1px solid #000}
   <!-- One <li> per gig, earliest first. Keep press-kit/index.html in sync. -->
   <ul class="dates">
    <li>
-    <time class="mono" datetime="2026-12-17">Thu 17 December 2026</time>
-    <p>9D9</p>
-    <span class="where">Barcelona</span>
-    <a href="https://ra.co/events/2591826" target="_blank" rel="noopener">Tickets · RA</a>
+    <a class="flyer" href="assets/img/gigs/true-color-sessions-03-2026-12-17.jpg" target="_blank" rel="noopener"><img src="assets/img/gigs/true-color-sessions-03-2026-12-17.jpg" width="506" height="900" loading="lazy" alt="True Color Sessions 03 flyer, 17 December 2026 at 9D9, Barcelona."></a>
+    <div class="info">
+     <time class="mono" datetime="2026-12-17">Thu 17 December 2026</time>
+     <p>9D9</p>
+     <span class="where">Barcelona</span>
+     <a href="https://ra.co/events/2591826" target="_blank" rel="noopener">Tickets · RA</a>
+    </div>
    </li>
    <li>
-    <time class="mono" datetime="2026-12-31">Thu 31 December 2026</time>
-    <p>with the Dub Division collective</p>
-    <span class="where">New Year's Eve</span>
-    <a href="https://www.instagram.com/archmaje/" target="_blank" rel="noopener">Tickets: contact via Instagram</a>
+    <a class="flyer" href="assets/img/gigs/deep-love-2026-12-31.jpg" target="_blank" rel="noopener"><img src="assets/img/gigs/deep-love-2026-12-31.jpg" width="618" height="900" loading="lazy" alt="Deep Love flyer, 31 December 2026 with the Dub Division collective. Secret location in El Born."></a>
+    <div class="info">
+     <time class="mono" datetime="2026-12-31">Thu 31 December 2026</time>
+     <p>with the Dub Division collective</p>
+     <span class="where">Secret location in El Born</span>
+     <span class="where">New Year's Eve</span>
+     <a href="https://www.instagram.com/archmaje/" target="_blank" rel="noopener">Tickets: contact via Instagram</a>
+    </div>
    </li>
   </ul>
  </div>

@@ -50,17 +50,22 @@
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #333;border-bottom:1px solid #333}
 .grid3>div{padding:36px 28px;text-align:center}.grid3>div+div{border-left:1px solid #333}
 .grid3 b{display:block;font-family:var(--fc);font-weight:400;font-size:1.7rem;margin:8px 0}
-.boxes{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.boxes{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.72fr);gap:24px;align-items:start}
 .box{border:1px solid #000;padding:40px;text-align:center}
 .box p.t{font-family:var(--fc);font-size:2rem;margin:10px 0}
 .dates{list-style:none;margin:22px 0 0;padding:0}
+.dates li{display:grid;grid-template-columns:minmax(108px,32%) minmax(0,1fr);gap:14px 16px;align-items:center}
 .dates li+li{margin-top:28px;padding-top:28px;border-top:1px solid #444}
+.dates .flyer{display:block;text-decoration:none;line-height:0}
+.dates .flyer img{width:100%;height:auto;display:block}
+.dates .flyer:hover img{opacity:.85}
 .dates time{display:block;opacity:.6}
 .dates p{font-family:var(--fc);font-size:2rem;line-height:1.2;margin:10px 0;text-wrap:balance}
 .dates .where{display:block}
-.dates a{display:inline-block;margin-top:16px}
+.dates .info a{display:inline-block;margin-top:16px}
 @media (max-width:860px){.dls{grid-template-columns:1fr 1fr;gap:12px}.dl{padding:10px}.dl b{font-size:1.05rem}
 .grid3,.boxes{grid-template-columns:1fr}.grid3>div+div{border-left:0;border-top:1px solid #333}.box{padding:28px 18px}.box p.t,.dates p{font-size:1.45rem}
+.dates li{grid-template-columns:1fr;gap:16px}.dates .flyer{max-width:260px;margin:0 auto}
 .pkhero img{aspect-ratio:1;max-height:none;object-position:50% 30%}
 .exp-row,.exp-row.rev{grid-template-columns:minmax(0,1fr);gap:20px;margin:40px 0 0}
 .exp-row.rev figure{order:0}}
@@ -94,7 +99,7 @@
   </div>
   <div class="exp-row">
    <div class="exp-txt">
-    <p>Within Barcelona’s drum &amp; bass scene, she has worked with the crews Dropezone, Drum and Babes, The Protocol, and True Colors.</p>
+    <p>Within Barcelona’s drum &amp; bass scene, she has worked with the crews Dropezone, Drum and Babes, The Protocol, and True Color.</p>
    </div>
    <figure>
     <img src="../assets/img/gigs/dropzone-drum-and-babes.jpg" alt="Drop Zone × Drum &amp; Babes Showcase poster, MAJE.">
@@ -127,16 +132,23 @@
    <!-- One <li> per gig, earliest first. Keep the home page #dates list in sync. -->
    <ul class="dates">
     <li>
-     <time class="mono" datetime="2026-12-17">Thu 17 December 2026</time>
-     <p>9D9</p>
-     <span class="where">Barcelona</span>
-     <a href="https://ra.co/events/2591826" target="_blank" rel="noopener">Tickets · RA</a>
+     <a class="flyer" href="../assets/img/gigs/true-color-sessions-03-2026-12-17.jpg" target="_blank" rel="noopener"><img src="../assets/img/gigs/true-color-sessions-03-2026-12-17.jpg" width="506" height="900" loading="lazy" alt="True Color Sessions 03 flyer, 17 December 2026 at 9D9, Barcelona."></a>
+     <div class="info">
+      <time class="mono" datetime="2026-12-17">Thu 17 December 2026</time>
+      <p>9D9</p>
+      <span class="where">Barcelona</span>
+      <a href="https://ra.co/events/2591826" target="_blank" rel="noopener">Tickets · RA</a>
+     </div>
     </li>
     <li>
-     <time class="mono" datetime="2026-12-31">Thu 31 December 2026</time>
-     <p>with the Dub Division collective</p>
-     <span class="where">New Year's Eve</span>
-     <a href="https://www.instagram.com/archmaje/" target="_blank" rel="noopener">Tickets: contact via Instagram</a>
+     <a class="flyer" href="../assets/img/gigs/deep-love-2026-12-31.jpg" target="_blank" rel="noopener"><img src="../assets/img/gigs/deep-love-2026-12-31.jpg" width="618" height="900" loading="lazy" alt="Deep Love flyer, 31 December 2026 with the Dub Division collective. Secret location in El Born."></a>
+     <div class="info">
+      <time class="mono" datetime="2026-12-31">Thu 31 December 2026</time>
+      <p>with the Dub Division collective</p>
+      <span class="where">Secret location in El Born</span>
+      <span class="where">New Year's Eve</span>
+      <a href="https://www.instagram.com/archmaje/" target="_blank" rel="noopener">Tickets: contact via Instagram</a>
+     </div>
     </li>
    </ul>
   </div>
