@@ -78,10 +78,10 @@ footer .soc a{text-decoration:none}
 .igfeed .num{text-transform:none;letter-spacing:.12em}
 .igfeed.has-posts .num,.igfeed.has-posts h2{display:block}
 .igfeed.has-posts .rule{display:block}
-.igfeed .ig-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 auto}
+.igfeed .ig-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:100%;max-width:900px;margin:0 auto}
 .igfeed .ig-row:empty{display:none}
-.igfeed .ig-row a{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;border:1px solid currentColor;line-height:0;text-decoration:none}
-.igfeed .ig-row img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:none;transition:opacity .3s}
+.igfeed .ig-row a{position:relative;display:block;min-width:0;aspect-ratio:1/1;overflow:hidden;border:1px solid currentColor;line-height:0;text-decoration:none}
+.igfeed .ig-row img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;filter:none;transition:opacity .3s}
 .igfeed .ig-row a:hover img{opacity:.85}
 .igfeed .ig-row a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .igfeed .ig-more{text-align:center;margin:0}
@@ -91,6 +91,9 @@ footer .soc a{text-decoration:none}
 @media (max-width:860px){
  .igfeed{padding:28px 0 24px}
  .igfeed.has-posts{padding:64px 0 56px}
- .igfeed .ig-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 8px;-webkit-overflow-scrolling:touch}
- .igfeed .ig-row a{flex:0 0 78%;scroll-snap-align:center}
+}
+@media (max-width:639px){
+ .igfeed .ig-row{display:flex;gap:12px;width:auto;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 8px;-webkit-overflow-scrolling:touch}
+ .igfeed .ig-row a{flex:0 0 78%;min-width:auto;scroll-snap-align:center}
+ .igfeed .ig-row img{max-width:100%}
 }
