@@ -1,0 +1,47 @@
+# Refresh the three Instagram rows on the static site.
+# Host is graph.facebook.com (Unified Login / system-user tokens).
+# To use Instagram Login tokens instead, set IG_GRAPH_BASE to
+# https://graph.instagram.com. Version defaults to v27.0.
+name: Update Instagram feeds
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-feeds
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest posts
+        env:
+          IG_TOKEN_ARCHMAJE: ${{ secrets.IG_TOKEN_ARCHMAJE }}
+          IG_TOKEN_MAUDESPINASSE: ${{ secrets.IG_TOKEN_MAUDESPINASSE }}
+          IG_TOKEN_M4JE: ${{ secrets.IG_TOKEN_M4JE }}
+          IG_GRAPH_BASE: https://graph.facebook.com
+          IG_GRAPH_VERSION: v27.0
+        run: python3 scripts/update_instagram.py
+
+      - name: Commit and push if the feed changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- assets/instagram)" ]; then
+            echo "No Instagram changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- assets/instagram
+          git commit -m "Update Instagram feeds"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
