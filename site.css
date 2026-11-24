@@ -57,3 +57,17 @@ footer .soc a{text-decoration:none}
  .rf-services>div{padding:32px 14px 36px}
  .rf-note{margin-top:36px}
 }
+/* DJ home — Listen & Watch */
+#listen{padding:110px 0 0}
+#listen .listen-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+#listen .listen-k{display:block;text-align:center;margin-bottom:16px;opacity:.55}
+#listen .listen-frame{border:1px solid #000;background:#000;line-height:0}
+#listen .listen-sc .listen-frame{height:450px}
+#listen .listen-yt .listen-frame{position:relative;width:100%;aspect-ratio:16/9}
+#listen iframe{width:100%;height:100%;border:0;display:block}
+#listen .listen-yt iframe{position:absolute;inset:0}
+@media (max-width:860px){
+ #listen{padding:72px 0 0}
+ #listen .listen-grid{grid-template-columns:1fr;gap:40px}
+ #listen .listen-sc .listen-frame{height:420px}
+}
