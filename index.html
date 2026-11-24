@@ -14,8 +14,15 @@
 :root{--w:1120px}
 .col{max-width:calc(var(--w) + 64px);margin:0 auto;padding:0 32px}
 .hero{text-align:center;padding:40px 0 80px}
-.hero img{width:min(560px,82vw);margin:0 auto}
+.hero-logo{position:relative;width:min(560px,82vw);aspect-ratio:1/1;margin:0 auto;background:#000;line-height:0}
+.hero-logo video,.hero-logo img{position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:contain;background:#000;display:block}
+.hero-logo .hero-still{display:none}
 .hero .btns{margin-top:34px}
+@media (prefers-reduced-motion: reduce){
+ .hero-logo video{display:none}
+ .hero-logo .hero-still{display:block}
+}
+.hero-logo.is-gif video,.hero-logo.is-gif .hero-still{display:none}
 #dj{padding:110px 0 0}
 .intro{max-width:720px;margin:0 auto 56px;text-align:center}
 .intro .genres{font-size:.85rem;letter-spacing:.06em;line-height:1.9;margin:0}
@@ -89,7 +96,50 @@ footer{border-top:1px solid #000}
   <span class="lang mono"><a class="on" href="#">EN</a> · <a href="#">FR</a> · <a href="#">ES</a></span>
  </div>
  <div class="hero">
-  <img src="assets/logo-cats-mark.jpg" alt="MAJE logo: hooded black cat at the decks">
+  <div class="hero-logo">
+   <video autoplay muted loop playsinline preload="auto" poster="assets/animation/archmaje-home-poster.jpg" width="904" height="904" role="img" aria-label="Logo Maje : chat DJ qui mixe">
+    <source src="assets/animation/archmaje-home-loop.webm" type="video/webm" media="(prefers-reduced-motion: no-preference)">
+    <source src="assets/animation/archmaje-home-loop.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)">
+    <img src="assets/animation/archmaje-home-poster.jpg" width="904" height="904" alt="Logo Maje : chat DJ qui mixe">
+   </video>
+   <img class="hero-still" src="assets/animation/archmaje-home-poster.jpg" width="904" height="904" alt="Logo Maje : chat DJ qui mixe">
+  </div>
+  <script>
+  (function () {
+   var root = document.querySelector(".hero-logo");
+   var video = root && root.querySelector("video");
+   if (!video) return;
+   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+   if (reduce) {
+    video.removeAttribute("autoplay");
+    video.pause();
+    return;
+   }
+   function showGif() {
+    if (root.classList.contains("is-gif")) return;
+    var img = document.createElement("img");
+    img.src = "assets/animation/archmaje-home-loop.gif";
+    img.alt = "Logo Maje : chat DJ qui mixe";
+    img.width = 480;
+    img.height = 480;
+    root.classList.add("is-gif");
+    root.appendChild(img);
+   }
+   if (typeof video.canPlayType !== "function") {
+    showGif();
+    return;
+   }
+   var webm = video.canPlayType("video/webm");
+   var mp4 = video.canPlayType("video/mp4");
+   if (!webm && !mp4) showGif();
+   video.addEventListener("error", function (event) {
+    var sources = video.querySelectorAll("source");
+    var last = sources[sources.length - 1];
+    if (event.target !== last && event.target !== video) return;
+    showGif();
+   }, true);
+  })();
+  </script>
   <div class="btns"><a class="btn fill mono" href="https://soundcloud.com/maud-espinasse">Listen to mixes</a><a class="btn mono" href="mailto:info@archmaje.com">Booking</a></div>
  </div>
 </div>
