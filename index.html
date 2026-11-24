@@ -33,8 +33,12 @@
 #dates{padding:90px 0 0}
 .datesbox{background:#000;color:#fff;padding:80px 32px;text-align:center}
 .datesbox h2{margin-bottom:18px}
-.date{max-width:620px;margin:0 auto;border:1px solid #444;padding:42px 24px}
-.date p{font-family:var(--fc);font-size:2rem;margin:10px 0}
+.dates{list-style:none;max-width:620px;margin:0 auto;padding:0;display:flex;flex-direction:column;gap:16px}
+.dates li{border:1px solid #444;padding:42px 24px}
+.dates time{display:block;opacity:.6}
+.dates p{font-family:var(--fc);font-size:2rem;line-height:1.2;margin:10px 0;text-wrap:balance}
+.dates .where{display:block}
+.dates a{display:inline-block;margin-top:16px}
 #disciplines{padding:110px 0 120px}
 .disc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #000;border-bottom:1px solid #000}
 .disc a{display:block;text-decoration:none;padding:30px 22px 36px;text-align:center}
@@ -50,8 +54,8 @@ footer{border-top:1px solid #000}
  .band{padding:48px 22px}
  .links3{grid-template-columns:1fr}.links3>div+div{border-left:0;border-top:1px solid #000}
  #dates{padding:64px 0 0}.datesbox{padding:56px 18px}
- .date{padding:30px 16px}
- .date p{font-size:1.45rem}
+ .dates li{padding:30px 16px}
+ .dates p{font-size:1.45rem}
  #disciplines{padding:72px 0 80px}
  .disc{grid-template-columns:repeat(2,minmax(0,1fr))}
  .disc a:nth-child(3){border-left:0}
@@ -111,7 +115,21 @@ footer{border-top:1px solid #000}
  <div class="datesbox">
   <h2>Upcoming dates</h2>
   <div class="rule"></div>
-  <div class="date"><span class="mono" style="opacity:.6">— — / — — / — — — —</span><p>Coming soon</p><span class="ph">Upcoming dates will be announced here.</span></div>
+  <!-- One <li> per gig, earliest first. Keep press-kit/index.html in sync. -->
+  <ul class="dates">
+   <li>
+    <time class="mono" datetime="2026-12-17">Thu 17 December 2026</time>
+    <p>9D9</p>
+    <span class="where">Barcelona</span>
+    <a href="https://ra.co/events/2591826" target="_blank" rel="noopener">Tickets · RA</a>
+   </li>
+   <li>
+    <time class="mono" datetime="2026-12-31">Thu 31 December 2026</time>
+    <p>with the Dub Division collective</p>
+    <span class="where">New Year's Eve</span>
+    <a href="https://www.instagram.com/archmaje/" target="_blank" rel="noopener">Tickets: contact via Instagram</a>
+   </li>
+  </ul>
  </div>
 </div></section>
 
