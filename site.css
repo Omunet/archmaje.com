@@ -42,3 +42,18 @@ footer .soc a{text-decoration:none}
  .phero{padding:48px 0 64px}
  .gal{columns:2;column-gap:10px}.gal a{margin-bottom:10px}
 }
+/* Redfine page only — three service columns */
+.rf-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #000;border-bottom:1px solid #000}
+.rf-services>div{padding:40px 24px 44px;text-align:center}
+.rf-services>div+div{border-left:1px solid #000}
+.rf-services h2{font-size:1.7rem;margin:0 0 18px}
+.rf-services p{margin:0;line-height:1.9}
+.rf-note{max-width:720px;margin:52px auto 0;text-align:center;font-size:1.08rem;line-height:1.8}
+.rf-contact .chips{margin-bottom:4px}
+.rf-contact p{margin:26px 0 0;font-size:1.05rem;line-height:1.9}
+@media (max-width:860px){
+ .rf-services{grid-template-columns:1fr}
+ .rf-services>div+div{border-left:0;border-top:1px solid #000}
+ .rf-services>div{padding:32px 14px 36px}
+ .rf-note{margin-top:36px}
+}
