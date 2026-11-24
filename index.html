@@ -14,8 +14,61 @@
 :root{--w:1120px}
 .col{max-width:calc(var(--w) + 64px);margin:0 auto;padding:0 32px}
 .hero{text-align:center;padding:40px 0 80px}
-.hero img{width:min(560px,82vw);margin:0 auto}
 .hero .btns{margin-top:34px}
+/* Home-page logo only. Idle frame is the original artwork; playing swaps in cut-out paws and discs. */
+.dj-logo{display:block;width:min(560px,82vw);margin:0 auto;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;position:relative;line-height:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.dj-logo:focus{outline:none}
+.dj-logo:focus-visible{outline:1px solid #fff;outline-offset:6px}
+.dj-logo__still{width:100%;height:auto;display:block}
+.dj-logo__stage{position:absolute;inset:0;visibility:hidden}
+.dj-logo.is-playing .dj-logo__stage{visibility:visible}
+.dj-logo__patch{position:absolute;left:calc(247 / 1090 * 100%);top:calc(682 / 1369 * 100%);width:calc(580 / 1090 * 100%);height:calc(204 / 1369 * 100%);display:block}
+.dj-logo__platter{position:absolute;width:calc(114 / 1090 * 100%);aspect-ratio:1;overflow:hidden;pointer-events:none;z-index:2}
+.dj-logo__platter--l{left:calc(341 / 1090 * 100%);top:calc(809 / 1369 * 100%);clip-path:inset(0 0 52% 0)}
+.dj-logo__platter--r{left:calc(653 / 1090 * 100%);top:calc(809 / 1369 * 100%);clip-path:inset(0 0 52% 0)}
+.dj-logo__disc{display:block;width:100%;height:100%;border-radius:50%;background:url("assets/logo-dj/disc.svg") center/cover no-repeat;transform-origin:50% 50%}
+.dj-logo__paw{position:absolute;z-index:3;height:auto;display:block;pointer-events:none}
+.dj-logo__paw--l{left:calc(249 / 1090 * 100%);top:calc(684 / 1369 * 100%);width:calc(254 / 1090 * 100%);transform-origin:18% 8%}
+.dj-logo__paw--r{left:calc(550 / 1090 * 100%);top:calc(684 / 1369 * 100%);width:calc(275 / 1090 * 100%);transform-origin:84% 8%}
+.dj-logo.is-playing .dj-logo__paw--l{animation:dj-paw-l 2.8s linear infinite}
+.dj-logo.is-playing .dj-logo__paw--r{animation:dj-paw-r 2.8s linear infinite}
+.dj-logo.is-playing .dj-logo__platter--l .dj-logo__disc{animation:dj-disc-l 2.8s linear infinite}
+.dj-logo.is-playing .dj-logo__platter--r .dj-logo__disc{animation:dj-disc-r 2.8s linear infinite}
+@keyframes dj-paw-l{
+ 0%{transform:rotate(0deg) translateX(0)}
+ 14%{transform:rotate(-5.5deg) translateX(-0.8%)}
+ 30%{transform:rotate(5deg) translateX(1.3%)}
+ 46%{transform:rotate(-3.5deg) translateX(-0.6%)}
+ 68%{transform:rotate(2.4deg) translateX(0.5%)}
+ 100%{transform:rotate(0deg) translateX(0)}
+}
+@keyframes dj-paw-r{
+ 0%{transform:rotate(0deg) translateX(0)}
+ 18%{transform:rotate(5.5deg) translateX(0.9%)}
+ 36%{transform:rotate(-5deg) translateX(-1.4%)}
+ 54%{transform:rotate(3.2deg) translateX(0.6%)}
+ 76%{transform:rotate(-1.8deg) translateX(-0.3%)}
+ 100%{transform:rotate(0deg) translateX(0)}
+}
+@keyframes dj-disc-l{
+ 0%{transform:rotate(0deg)}
+ 14%{transform:rotate(-42deg)}
+ 30%{transform:rotate(36deg)}
+ 46%{transform:rotate(8deg)}
+ 100%{transform:rotate(360deg)}
+}
+@keyframes dj-disc-r{
+ 0%{transform:rotate(0deg)}
+ 18%{transform:rotate(30deg)}
+ 36%{transform:rotate(-48deg)}
+ 54%{transform:rotate(-12deg)}
+ 100%{transform:rotate(-360deg)}
+}
+@media (prefers-reduced-motion:reduce){
+ .dj-logo.is-playing .dj-logo__paw--l,
+ .dj-logo.is-playing .dj-logo__paw--r,
+ .dj-logo.is-playing .dj-logo__disc{animation:none}
+}
 #dj{padding:110px 0 0}
 .intro{max-width:720px;margin:0 auto 56px;text-align:center}
 .intro .genres{font-size:.85rem;letter-spacing:.06em;line-height:1.9;margin:0}
@@ -89,7 +142,16 @@ footer{border-top:1px solid #000}
   <span class="lang mono"><a class="on" href="#">EN</a> · <a href="#">FR</a> · <a href="#">ES</a></span>
  </div>
  <div class="hero">
-  <img src="assets/logo-cats-mark.jpg" alt="MAJE logo: hooded black cat at the decks">
+  <button type="button" class="dj-logo" aria-pressed="false" aria-label="Faire mixer le chat">
+   <img class="dj-logo__still" src="assets/logo-cats-mark.jpg" width="1090" height="1369" alt="">
+   <span class="dj-logo__stage">
+    <img class="dj-logo__patch" src="assets/logo-dj/deck-patch.png" alt="">
+    <span class="dj-logo__platter dj-logo__platter--l"><span class="dj-logo__disc"></span></span>
+    <span class="dj-logo__platter dj-logo__platter--r"><span class="dj-logo__disc"></span></span>
+    <img class="dj-logo__paw dj-logo__paw--l" src="assets/logo-dj/paw-left.png" alt="">
+    <img class="dj-logo__paw dj-logo__paw--r" src="assets/logo-dj/paw-right.png" alt="">
+   </span>
+  </button>
   <div class="btns"><a class="btn fill mono" href="https://soundcloud.com/maud-espinasse">Listen to mixes</a><a class="btn mono" href="mailto:info@archmaje.com">Booking</a></div>
  </div>
 </div>
@@ -192,4 +254,32 @@ footer{border-top:1px solid #000}
  <p class="mono" style="opacity:.5">© 2026 ArchMAJE</p>
 </footer>
 <script src="/assets/instagram.js"></script>
+<script>
+(function () {
+  var btn = document.querySelector('.dj-logo');
+  if (!btn) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var off = 'Faire mixer le chat';
+  var onLabel = 'Arrêter de mixer le chat';
+  function setPlaying(on) {
+    btn.classList.toggle('is-playing', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', on ? onLabel : off);
+  }
+  btn.addEventListener('click', function () {
+    if (reduce.matches) return;
+    setPlaying(!btn.classList.contains('is-playing'));
+  });
+  btn.addEventListener('keydown', function (e) {
+    if (e.repeat || (e.key !== 'Enter' && e.key !== ' ')) return;
+    e.preventDefault();
+    btn.click();
+  });
+  if (reduce.addEventListener) {
+    reduce.addEventListener('change', function () {
+      if (reduce.matches) setPlaying(false);
+    });
+  }
+})();
+</script>
 </body></html>
